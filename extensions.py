@@ -12,6 +12,8 @@ class StaticValue:
             raise APIException(f'Кода валюты {base} не существует')
         elif quote not in all_values:
             raise APIException(f'Кода валюты {quote} не существует')
+        elif quote not in all_values and base not in all_values:
+            raise APIException(f'Кода валюты {base} и {quote} не существует')
         elif not amount.isdigit():
             raise APIException(f'{amount} не является числом!')
 
